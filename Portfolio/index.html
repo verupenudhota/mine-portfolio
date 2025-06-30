@@ -11,26 +11,27 @@
   <style>
     * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
     body {background: #0a0a0a; color: #fff; overflow-x: hidden; scroll-behavior: smooth;}
-    nav {display: flex; justify-content: space-between; padding: 20px 50px; background: #0a0a0a; position: sticky; top: 0; z-index: 1000;}
-    nav a {color: #00f0ff; text-decoration: none; margin-left: 30px; font-weight: 500; transition: 0.3s;}
+    nav {display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 20px; background: #0a0a0a; position: sticky; top: 0; z-index: 1000;}
+    nav .logo {font-weight: bold; color: #00f0ff; font-size: 20px;}
+    nav div a {color: #00f0ff; text-decoration: none; margin-left: 15px; font-weight: 500; transition: 0.3s; font-size: 16px;}
     nav a:hover {color: #00ff88; text-shadow: 0 0 10px #00ff88;}
 
-    .hero {display: flex; flex-wrap: wrap; align-items: center; justify-content: space-around; min-height: 90vh; padding: 50px;}
-    .hero-text {max-width: 600px;}
-    .hero-text h1 {font-size: 48px; margin-bottom: 20px;}
-    .hero-text h2 {font-size: 28px; margin-bottom: 20px; color: #00f0ff;}
-    .hero-text p {font-size: 18px; line-height: 1.5; margin-bottom: 20px;}
-    .btn {padding: 10px 20px; background: #00f0ff; color: #000; border: none; border-radius: 30px; cursor: pointer; font-size: 16px; box-shadow: 0 0 15px #00f0ff; transition: 0.3s;}
-    .btn:hover {background: #00ff88; box-shadow: 0 0 20px #00ff88;}
+    .hero {display: flex; flex-wrap: wrap; align-items: center; justify-content: center; min-height: 90vh; padding: 50px 20px; text-align: center;}
+    .hero-text {max-width: 600px; margin-bottom: 30px;}
+    .hero-text h1 {font-size: 36px; margin-bottom: 15px;}
+    .hero-text h2 {font-size: 24px; margin-bottom: 15px; color: #00f0ff;}
+    .hero-text p {font-size: 16px; line-height: 1.5; margin-bottom: 20px;}
+    .btn {padding: 10px 20px; background: #00f0ff; color: #000; border: none; border-radius: 30px; cursor: pointer; font-size: 14px; box-shadow: 0 0 15px #00f0ff; transition: 0.3s; display: inline-block; margin: 5px 0;}
+    .btn:hover {background: #00ff88; box-shadow: 0 0 20px #00ff88; color: #000;}
 
-    .profile-pic img {width: 300px; border-radius: 50%; box-shadow: 0 0 30px #00f0ff; animation: float 4s ease-in-out infinite;}
+    .profile-pic img {width: 250px; border-radius: 50%; box-shadow: 0 0 30px #00f0ff; animation: float 4s ease-in-out infinite;}
 
     @keyframes float {0%{transform: translatey(0px);} 50%{transform: translatey(-20px);} 100%{transform: translatey(0px);}}
 
-    section {padding: 60px 50px;}
-    .section-title {font-size: 36px; color: #00f0ff; margin-bottom: 30px; text-align: center;}
+    section {padding: 60px 20px;}
+    .section-title {font-size: 28px; color: #00f0ff; margin-bottom: 30px; text-align: center;}
     .card-container {display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;}
-    .card {flex: 1 1 300px; background: #111; padding: 20px; border-radius: 20px; box-shadow: 0 0 15px #00f0ff; transition: 0.3s;}
+    .card {flex: 1 1 280px; background: #111; padding: 20px; border-radius: 20px; box-shadow: 0 0 15px #00f0ff; transition: 0.3s;}
     .card:hover {transform: translateY(-10px); box-shadow: 0 0 25px #00ff88;}
     .card img {width: 100%; border-radius: 10px; margin-bottom: 15px;}
     .card a {color: #00f0ff; text-decoration: underline;}
@@ -38,50 +39,35 @@
     footer {text-align: center; padding: 30px; color: #555; font-size: 14px;}
 
     @media (max-width: 768px) {
-      .hero {flex-direction: column; text-align: center;}
-      .profile-pic img {width: 200px;}
-    }
-    .btn {
-      background: #00ffc8;
-      color: black;
-      padding: 10px 20px;
-      border-radius: 8px;
-      display: inline-block;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 10px;
-      text-decoration: none;
-      transition: 0.3s;
+      nav {flex-direction: column; align-items: flex-start;}
+      nav div a {margin: 10px 5px; display: inline-block;}
+      .hero-text h1 {font-size: 28px;}
+      .hero-text h2 {font-size: 20px;}
+      .hero-text p {font-size: 14px;}
+      .profile-pic img {width: 180px;}
     }
 
-    .btn:hover {
-      background: #00cc99;
-      color: white;
-    }
-
-    /* New style for smaller LeetCode image within the card */
     .leetcode-card img {
-        max-width: 150px; /* Adjust as needed */
+        max-width: 150px;
         height: auto;
-        display: block; /* Centers the image */
-        margin: 0 auto 15px auto; /* Centers the image and adds bottom margin */
-        border-radius: 5px; /* Slightly less rounded than profile pic */
+        display: block;
+        margin: 0 auto 15px auto;
+        border-radius: 5px;
     }
 
-    /* New styles for the image in the About Me section */
     .about-image-container {
         text-align: center;
         margin-top: 30px;
     }
     .about-image-container img {
-        max-width: 50%; /* Adjust as needed */
+        max-width: 90%;
         height: auto;
-        border-radius: 15px; /* Rounded corners for the image */
-        box-shadow: 0 0 20px rgba(0, 240, 255, 0.5); /* Subtle glow */
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
         transition: transform 0.3s ease-in-out;
     }
     .about-image-container img:hover {
-        transform: scale(1.02); /* Slightly enlarge on hover */
+        transform: scale(1.02);
     }
     .about-image-container p {
         margin-top: 10px;
@@ -90,6 +76,13 @@
         font-size: 14px;
     }
 
+    @media (max-width: 480px) {
+      .hero-text h1 {font-size: 24px;}
+      .hero-text h2 {font-size: 18px;}
+      .hero-text p {font-size: 13px;}
+      .btn {font-size: 13px; padding: 8px 16px;}
+      .section-title {font-size: 22px;}
+    }
   </style>
 </head>
 <body>
